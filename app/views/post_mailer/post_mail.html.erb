@@ -1,5 +1,5 @@
 <h4>投稿が完了しました！</h5>
 
 <h5>あなたの投稿内容</h5>
-<p><%= image_tag @post.image %></p>
+<p><%= image_tag @post.image.url, style:"max-width:640px;"%></p>
 <p><%= @post.content %></p>
