@@ -33,14 +33,11 @@
           <div class="form-group">
             <%= f.password_field :password_confirmation, class:"form-control",:placeholder => " PASSWORD_CONFIRM " %>
           </div>
-          <label for="file_photo">
-          <% if @user.image.url %>
-            <%= image_tag @user.image.url, class:'profile_image_edit' %><span>Reupload Your Photo</span>
-          <% else %>
-            <img src="/user-icon.png" width="60px"><span> Upload Your Photo</span>
-	　　　　　<%= f.file_field :image, id:"file_photo", class:"f-field" %>
-          <% end %>
-	　　　　</label>
+          <div class="form-group">
+          <h5>Your Icon</h5>
+          <%= image_tag(@user.image.url, class:'profile_image_edit') if @user.image.url %>
+          <%= f.file_field :image, id: :user_image %>
+          </div>
 　　　　　<div class="text-center">
             <%= f.submit 'Edit Account',class:"btn btn-primary btn-xl text-uppercase" %>
           </div>
