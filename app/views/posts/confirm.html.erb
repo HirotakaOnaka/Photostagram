@@ -1,0 +1,39 @@
+<!--post-->
+<section class="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading text-uppercase">CONFIRM</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="offset-md-3 col-md-6">
+        <%= form_with(model:@post, url: posts_path, local: true) do |f| %>
+          <%= f.hidden_field :image_cache %>
+          <%= f.hidden_field :content %>
+
+        <div class="form-group text-center">
+          <h4 class="service-heading">Picture</h4>
+          <%= image_tag @post.image, class:"img-fluid" %>
+          <h4 class="service-heading">TEXT</h4>
+          <%= @post.content %>
+        </div>
+
+    　　　<div class="text-center">
+          <%= f.submit 'P O S T',class:"btn btn-primary btn-xl text-uppercase" %>
+        </div>
+
+        <% end %>
+
+        <%= form_with(model:@post, url: new_post_path, local:true, method:'get') do |f| %>
+          <%= f.hidden_field :image_cache %>
+          <%= f.hidden_field :content %>
+    　　　　　<div class="text-center">
+            <%= link_to 'back', :back %>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+<!--post-->

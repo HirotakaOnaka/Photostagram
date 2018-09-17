@@ -1,0 +1,46 @@
+<!--post-->
+      <div class="row">
+        <div class="offset-md-3 col-md-6">
+          <%= form_with(model: @post, local: true, url: choose_new_or_edit) do |f| %>
+
+            <% if @post.errors.any? %>
+            <div id ="error_explanation">
+              <ul>
+                <% @post.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+            <% end %>
+
+            <div class="form-group">
+              <% if @post.image.url %>
+                <%= image_tag(@post.image.url, :class => "re-pic") %>
+                <h4 class="service-heading">Reupload Picture</h4>
+                  <label for="file_photo">
+                    <img src="/picture_frame.png" width="50px">
+                    <%= f.file_field :image, id:"file_photo", class:"f-field" %>
+                  </label>
+              <% else %>
+                <h4 class="service-heading">Upload Picture</h4>
+                  <label for="file_photo">
+                    <img src="/picture_frame.png" width="100px">
+                    <%= f.file_field :image, id:"file_photo", class:"f-field" %>
+                  </label>
+              <% end %>
+            </div>
+
+            <div class="form-group">
+              <h4 class="service-heading">TEXT</h4>
+              <%= f.text_area :content, :size => "55×10" %>
+            </div>
+
+    　　　 　　<div class="text-center">
+              <%= f.submit 'CONFIRM',class:"btn btn-primary btn-xl text-uppercase" %>
+            </div>
+
+          <% end %>
+        </div>
+      </div>
+
+<!--post-->
